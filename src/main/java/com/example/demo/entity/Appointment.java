@@ -4,30 +4,81 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
+@Table(name = "appointments")
 public class Appointment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
-	
+
+	@NotNull
+	@NotBlank
+	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String name;
 
+	@NotNull
+	@NotBlank
+	@Pattern(regexp = "[0-9 ]+")
 	private Integer age;
-
+	
+	@NotNull
+	@NotBlank
 	private String email;
-
+	
+	@NotNull
+	@NotBlank
+	@Pattern(regexp = "[0-9 ]+")
 	private String mobilenum;
-
+	
+	@NotNull
+	@NotBlank
 	private String AddressLine1;
-
+	
+	@NotNull
+	@NotBlank
 	private String AddressLine2;
-
+	
+	@NotBlank
+	@NotNull
+	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String city;
+	
+	@NotBlank
+	@NotNull
+	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String state;
+	
+	@NotBlank
+	@NotNull
+	@Pattern(regexp ="^[a-zA-Z\s]+$")
 	private String country;
+	
+	@NotBlank
+	@NotNull
+	@Pattern(regexp = "[0-9 ]+")
 	private String pincode;
 
+	private String trainerPref;
+
+	@Pattern(regexp = "^(?:Yes|No)$")
+	private String physioReq;
+
+	@Pattern(regexp = "^(?:Basic|Premium)$")
+	private String packageSel;
+
+	@Pattern(regexp = "[0-9 ]+")
+	private String weeks;
+
+	@Pattern(regexp = "[0-9 ]+")
+	private String amount;
+
+	
+	
 	public Integer getId() {
 		return id;
 	}
@@ -115,5 +166,46 @@ public class Appointment {
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
+	
+	public String getTrainerPref() {
+		return trainerPref;
+	}
+
+	public void setTrainerPref(String trainerPref) {
+		this.trainerPref = trainerPref;
+	}
+
+	public String getPhysioReq() {
+		return physioReq;
+	}
+
+	public void setPhysioReq(String physioReq) {
+		this.physioReq = physioReq;
+	}
+
+	public String getPackageSel() {
+		return packageSel;
+	}
+
+	public void setPackageSel(String packageSel) {
+		this.packageSel = packageSel;
+	}
+
+	public String getWeeks() {
+		return weeks;
+	}
+
+	public void setWeeks(String weeks) {
+		this.weeks = weeks;
+	}
+
+	public String getAmount() {
+		return amount;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
+	}
+
 
 }

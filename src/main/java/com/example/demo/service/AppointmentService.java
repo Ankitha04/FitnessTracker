@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +14,8 @@ public class AppointmentService {
     AppointmentRepository appointmentRepository;
 
 
-	public void saveContact(Appointment appointment) {
+	public void addAppointment(@Valid Appointment appointment) {
 		appointmentRepository.save(appointment);
 
-	}
-
-	public Iterable<Appointment> getAppointment() {
-
-		return appointmentRepository.findAll();
-	}
-
+}
 }
